@@ -12,12 +12,11 @@ import { MCalendar } from '../api/availableDates.js';
 
 
 // App component - represents the whole app
-class App extends Component {
+class Date extends Component {
 
   constructor(props) {
     super(props);
     this.remove = this.remove.bind(this);
-    this.update = this.update.bind(this);
 
     //Setting up all days as free dates
     var Calendar = new Array(32);
@@ -25,8 +24,9 @@ class App extends Component {
       Calendar[i] = i;
     }
     this.state = {
-      Calendar: Calendar,
+      Calendar: this.props.calendar,
     };
+    console.log(this.props.calendars);
   }
 
 
@@ -60,22 +60,12 @@ class App extends Component {
 
     return (
 
-      <div className="container">
-        <FreeDays days = {this.state.Calendar}/>
-        <Calendar remove = {this.remove} update = {this.update}/>
-
-      </div>
-
+      <Calendar remove = {this.remove} update = {this.update}/>
+      
     );
   }
 }
-
+export default Date;
 // App.propTypes = {
 //   calendars: PropTypes.array.isRequired,
 // };
-
-export default createContainer(() => {
-  return {
-    calendars: MCalendar.find({}).fetch(),
-  };
-}, App);

@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 
 
 import App from '../imports/ui/App.jsx';
-import '../imports/api/tasks.js';
 
 import '../imports/api/availableDates.js';
 

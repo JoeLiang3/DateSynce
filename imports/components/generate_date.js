@@ -106,6 +106,7 @@ class Calendar extends Component {
             <div onClick={() => this.props.remove(month[6][4])} className="days">{month[6][4]}</div>
           </div>
         </div>
+        <button onClick ={() => this.props.update()}>Update</button>
       </div>
     );
 
