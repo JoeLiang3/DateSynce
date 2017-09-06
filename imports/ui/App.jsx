@@ -7,6 +7,8 @@ import FreeDays from '../components/test.jsx'; // Date Generate button
 
 import { MCalendar } from '../api/availableDates.js';
 
+// import {ObjectID} from 'mongodb'
+
 
 
 
@@ -50,10 +52,11 @@ class App extends Component {
     MCalendar.update("23D6HgwiQ2NKWRZPq", {
       $set: { array: tempCalendar },
     });
+    console.log(MCalendar.find({_id: "23D6HgwiQ2NKWRZPq"}).fetch());
   }
 
   render() {
-
+    console.log(this.props.calendars);
     var date = new Date();
     var d= new Date(date.getFullYear(), date.getMonth()+1, 0);
     var availDates = new Array(32);
