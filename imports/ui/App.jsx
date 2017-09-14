@@ -45,9 +45,9 @@ class App extends Component {
 
   remove(date) {
     var tempCalendar = this.state.Calendar;
-    console.log(date);
     tempCalendar[date] = 0;
     this.setState({Calendar: tempCalendar});
+    // console.log(this.props.calendars);
 
     MCalendar.update("23D6HgwiQ2NKWRZPq", {
       $set: { array: tempCalendar },
@@ -56,7 +56,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.calendars);
     var date = new Date();
     var d= new Date(date.getFullYear(), date.getMonth()+1, 0);
     var availDates = new Array(32);
